@@ -1,0 +1,145 @@
+/* Simplified navbar with clean hero-like styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 8%;
+  z-index: 1000;
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  text-decoration: none;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.title:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.2);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menuBtn {
+  display: none;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  filter: brightness(0) invert(1);
+}
+
+.menuBtn:hover {
+  transform: scale(1.1);
+}
+
+.menuItems {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menuItems a {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menuItems a:hover {
+  color: #fff;
+  background: rgba(102, 126, 234, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+}
+
+@media screen and (max-width: 830px) {
+  .navbar {
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 5%;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+  }
+
+  .menu {
+    position: absolute;
+    right: 5%;
+    top: 20px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+    z-index: 3;
+  }
+
+  .menuBtn {
+    display: block;
+  }
+
+  .menuItems {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    margin-top: 10px;
+    min-width: 180px;
+  }
+
+  .menuItems a {
+    width: 100%;
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .menuOpen {
+    display: flex;
+    animation: slideDown 0.3s ease;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
