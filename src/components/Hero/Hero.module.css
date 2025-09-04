@@ -274,6 +274,7 @@
 /* Responsive Design */
 @media screen and (max-width: 1024px) {
   .container {
+    /* min-height: 70vh; */
     padding: 2rem 3%;
   }
 
@@ -286,12 +287,14 @@
 @media screen and (max-width: 768px) {
   .container {
     flex-direction: column-reverse;
+    min-height: 50vh;
     text-align: center;
     padding: 2rem;
     gap: 3rem;
   }
 
   .content {
+    margin-bottom: 1rem;
     align-items: center;
     max-width: 100%;
   }

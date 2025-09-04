@@ -1,26 +1,26 @@
-[
+[ 
   {
-    "title": "Project A",
-    "imageSrc": "projects/project.png",
-    "description": "This is a project made to learn the latest languages by building an app.",
-    "skills": ["React", "Express", "Node"],
-    "demo": "https://www.example.com",
-    "source": "https://www.github.com"
+    "title": "Tech Update",
+    "imageSrc": "projects/techUpdate.png",
+    "description": "An interactive and responsive blogging platform where logged-in users can create, update, and manage posts, while unregistered users can only view existing content. Designed with a clean UI to ensure seamless content browsing and management.",
+    "skills": ["React", "Firebase", "Tailwind CSS"],
+    "demo": "https://tech-update-blog.vercel.app/",
+    "source": "https://github.com/Sk-Sakirul/Tech-Update-Blog.git"
   },
   {
-    "title": "Project B",
-    "imageSrc": "projects/project.png",
-    "description": "This is a project made to learn the latest languages by building an app.",
-    "skills": ["React", "Express", "Node", "Sass"],
+    "title": "Trendbe (E-commerce)",
+    "imageSrc": "projects/trendbe.png",
+    "description": "Developed a responsive Admin Dashboard with real-time updates for managing products, users, and transactions. Designed interactive analytics and a product catalog with search, filtering, and shopping cart functionality.",
+    "skills": ["React", "Node", "Express", "MongoDB", "TypeScript"],
     "demo": "https://www.example.com",
-    "source": "https://www.github.com"
+    "source": "https://github.com/Sk-Sakirul/E-commerce-Trendbe-.git"
   },
   {
-    "title": "Project C",
-    "imageSrc": "projects/project.png",
-    "description": "This is a project made to learn the latest languages by building an app.",
-    "skills": ["React", "Express", "Node"],
-    "demo": "https://www.example.com",
-    "source": "https://www.github.com"
+    "title": "Dice Game",
+    "imageSrc": "projects/diceGame.png",
+    "description": "The Dice Game is a simple and fun number guessing game built to test your luck.",
+    "skills": ["React", "CSS3"],
+    "demo": "https://dice-game-tau-wheat.vercel.app/",
+    "source": "https://github.com/Sk-Sakirul/Dice-Game.git"
   }
 ]

@@ -249,6 +249,39 @@
 }
 
 /* Improved responsive design with better breakpoints */
+@media (max-width: 950px) {
+  .container {
+    padding: 60px 5%;
+  }
+
+  .title {
+    margin-bottom: 3rem;
+  }
+
+  .skillsRow {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .skillCard {
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+  }
+
+  .skillIcon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .skillIcon img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .skillName {
+    font-size: 1rem;
+  }
+}
 @media (max-width: 768px) {
   .container {
     padding: 60px 5%;

@@ -36,7 +36,12 @@ export const Hero = () => {
               />
             </svg>
           </a>
-          <a href={getImageUrl("resume/Resume.pdf")} download="Sakirul_resume" className={`${styles.contactBtn} ${styles.secondary}`}>
+          <a
+            href="https://drive.google.com/file/d/1G1D8nv2cRIuXEvXSn7WfFlAhlYoU4KxL/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${styles.contactBtn} ${styles.secondary}`}
+          >
             <span>My Resume</span>
             <svg
               className={styles.buttonIcon}

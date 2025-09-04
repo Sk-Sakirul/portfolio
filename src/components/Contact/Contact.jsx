@@ -16,17 +16,16 @@ export const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Send using EmailJS
     emailjs
       .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID, // replace with your EmailJS service ID
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // replace with your template ID
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_API_KEY // replace with your EmailJS public key
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(
         () => {
@@ -39,6 +38,7 @@ export const Contact = () => {
         }
       );
   };
+
 
   return (
     <section id="contact" className={styles.container}>

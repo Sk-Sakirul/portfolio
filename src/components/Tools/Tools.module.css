@@ -75,13 +75,14 @@
 /* .title::after {
   content: "";
   position: absolute;
-  bottom: -1rem;
+  bottom: -12px;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
+  width: 40px;
   height: 4px;
-  background: var(--primary-gradient);
-  border-radius: 2px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+  border-radius: 3px;
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
 } */
 
 /* Updated layout to use CSS Grid for 2x4 arrangement */

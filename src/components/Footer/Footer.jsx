@@ -10,7 +10,7 @@ export function Footer() {
         </div>
         <div className={styles.socialLinks}>
           <a
-            href="https://linkedin.com"
+            href="https://linkedin.com/in/sk-sakirul-islam/"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialLink}
@@ -20,7 +20,7 @@ export function Footer() {
             </svg>
           </a>
           <a
-            href="https://github.com"
+            href="https://github.com/Sk-Sakirul"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialLink}
