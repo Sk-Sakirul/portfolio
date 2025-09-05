@@ -1,4 +1,4 @@
-[ 
+[
   {
     "title": "Tech Update",
     "imageSrc": "projects/techUpdate.png",
@@ -14,6 +14,22 @@
     "skills": ["React", "Node", "Express", "MongoDB", "TypeScript"],
     "demo": "https://www.example.com",
     "source": "https://github.com/Sk-Sakirul/E-commerce-Trendbe-.git"
+  },
+  {
+    "title": "Image Search Engine",
+    "imageSrc": "projects/imageSearch.png",
+    "description": "A responsive image search engine built with HTML, CSS, and JavaScript. It fetches images from the Unsplash API based on user input and displays them in a grid layout with a 'Show More' option for pagination.",
+    "skills": ["HTML", "CSS", "JavaScript", "Unsplash API"],
+    "demo": "https://sk-sakirul.github.io/Image-Search-Engine/",
+    "source": "https://github.com/Sk-Sakirul/Image-Search-Engine.git"
+  },
+  {
+    "title": "GitHub Profile Finder",
+    "imageSrc": "projects/searchGithubProfile.png",
+    "description": "Built a React application that allows users to search and view GitHub profiles using the GitHub API. Displays profile details, repositories, followers, and following with a clean and responsive UI.",
+    "skills": ["HTML", "JavaScript", "CSS", "GitHub API"],
+    "demo": "sk-sakirul.github.io/Search-Github-Profile",
+    "source": "https://github.com/Sk-Sakirul/Search-Github-Profile.git"
   },
   {
     "title": "Dice Game",
