@@ -35,7 +35,7 @@ export const Hero = () => {
   }, [currentText, isDeleting, currentTextIndex]);
 
   const handleResumeDownload = () => {
-    const resumeUrl = getImageUrl("resume/resume.pdf"); 
+    const resumeUrl = getImageUrl("resume/Sakirul_Resume.pdf"); 
     window.open(resumeUrl, "_blank");
 
     const link = document.createElement("a");
