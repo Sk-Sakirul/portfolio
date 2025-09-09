@@ -4,8 +4,26 @@ import { getImageUrl } from "../../utils";
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showScrollTop, setShowScrollTop] = useState(false);
   const menuRef = useRef(null);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    };
+  }, [menuOpen]);
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -25,25 +43,6 @@ export const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [menuOpen]);
-
-  // Show "Go to Top" button on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 200) {
-        setShowScrollTop(true);
-      } else {
-        setShowScrollTop(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Scroll smoothly to top
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <>
@@ -100,29 +99,6 @@ export const Navbar = () => {
           </ul>
         </div>
       </nav>
-
-      {/* Go to Top Button (outside navbar, bottom-right corner of screen) */}
-      <button
-        className={`${styles.scrollTopBtn} ${showScrollTop ? styles.show : ""}`}
-        onClick={scrollToTop}
-        aria-label="Scroll to top"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="22"
-          height="22"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="white"
-          strokeWidth="2"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M5 15l7-7 7 7"
-          />
-        </svg>
-      </button>
     </>
   );
 };

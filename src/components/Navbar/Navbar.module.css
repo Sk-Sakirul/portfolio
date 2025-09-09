@@ -1,5 +1,11 @@
+html,
+body {
+  overflow-x: hidden;
+}
+
 /* Navbar container */
 .navbar {
+  box-sizing: border-box;
   position: fixed;
   top: 0;
   left: 0;
@@ -96,48 +102,9 @@
   z-index: 999;
 }
 
-/* Go to Top Button */
-.scrollTopBtn {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(32, 33, 35, 0.9); /* dark translucent background */
-  color: #fff;
-  cursor: pointer;
-  z-index: 1500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.2s ease, background 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(6px);
-}
-
-/* Visible state */
-.scrollTopBtn.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Hover effect */
-.scrollTopBtn:hover {
-  transform: scale(1.08);
-  background: rgba(50, 52, 55, 0.95);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-}
-
-
-
-
 @media screen and (max-width: 830px) {
   .navbar {
-    position: relative;
+    position: fixed;
     flex-direction: row;
     align-items: center;
     padding: 20px 5%;
@@ -165,7 +132,7 @@
     position: fixed;
     top: 0;
     left: -100%;
-    width: 60vw;
+    width: 100vw;
     height: 100vh;
     background: rgba(15, 15, 20, 0.95);
     backdrop-filter: blur(25px);
@@ -204,6 +171,6 @@
 @media screen and (max-width: 600px) {
   .menuItems {
     align-items: center;
-    width: 90vw;
+    width: 100vw;
   }
 }

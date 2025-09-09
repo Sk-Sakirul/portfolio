@@ -1,44 +1,45 @@
-import styles from "./Contact.module.css";
 import { useState } from "react";
-import emailjs from "emailjs-com";
+import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
+import styles from "./Contact.module.css";
 
 export const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [result, setResult] = useState("");
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending...");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Message sent successfully!");
+        event.target.reset();
+
+        setTimeout(() => {
+          setResult("");
+        }, 1000);
+      } else {
+        console.error("Error:", data);
+        setResult(data.message);
+
+        setTimeout(() => {
+          setResult("");
+        }, 1000);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setResult("Something went wrong. Try again!");
+    }
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          alert("✅ Message sent successfully!");
-          setFormData({ name: "", email: "", message: "" });
-        },
-        (error) => {
-          console.error(error);
-          alert("❌ Failed to send message. Try again!");
-        }
-      );
-  };
-
 
   return (
     <section id="contact" className={styles.container}>
@@ -53,23 +54,24 @@ export const Contact = () => {
 
           <div className={styles.contactInfo}>
             <div className={styles.contactItem}>
-              <div className={styles.contactDetails}>
-                <span className={styles.contactLabel}>
-                  sksakirul484@gmail.com
-                </span>
+              <div className={styles.iconWrapper}>
+                <MdEmail size={24} />
               </div>
+              <span className={styles.contactLabel}>
+                sksakirul484@gmail.com
+              </span>
             </div>
-
             <div className={styles.contactItem}>
-              <div className={styles.contactDetails}>
-                <span className={styles.contactLabel}>+91-6296114526</span>
+              <div className={styles.iconWrapper}>
+                <MdPhone size={24} />
               </div>
+              <span className={styles.contactLabel}>+91-6296114526</span>
             </div>
-
             <div className={styles.contactItem}>
-              <div className={styles.contactDetails}>
-                <span className={styles.contactLabel}>Kolkata, India</span>
+              <div className={styles.iconWrapper}>
+                <MdLocationOn size={24} />
               </div>
+              <span className={styles.contactLabel}>Kolkata, India</span>
             </div>
           </div>
         </div>
@@ -87,8 +89,6 @@ export const Contact = () => {
                 name="name"
                 placeholder="Enter your name"
                 className={styles.formInput}
-                value={formData.name}
-                onChange={handleChange}
                 required
               />
             </div>
@@ -103,8 +103,6 @@ export const Contact = () => {
                 name="email"
                 placeholder="Enter your email"
                 className={styles.formInput}
-                value={formData.email}
-                onChange={handleChange}
                 required
               />
             </div>
@@ -119,16 +117,17 @@ export const Contact = () => {
                 placeholder="Enter your message"
                 className={styles.formTextarea}
                 rows="6"
-                value={formData.message}
-                onChange={handleChange}
                 required
               ></textarea>
             </div>
 
             <button type="submit" className={styles.submitButton}>
-              Send via Email
+              Send Message
             </button>
           </form>
+
+          {/* Result message */}
+          {result && <p className={styles.resultMessage}>{result}</p>}
         </div>
       </div>
     </section>

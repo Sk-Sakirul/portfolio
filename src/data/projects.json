@@ -8,12 +8,19 @@
     "source": "https://github.com/Sk-Sakirul/Tech-Update-Blog.git"
   },
   {
-    "title": "Trendbe (E-commerce)",
-    "imageSrc": "projects/trendbe.png",
-    "description": "Developed a responsive Admin Dashboard with real-time updates for managing products, users, and transactions. Designed interactive analytics and a product catalog with search, filtering, and shopping cart functionality.",
-    "skills": ["React", "Node", "Express", "MongoDB", "TypeScript"],
-    "demo": "https://www.example.com",
-    "source": "https://github.com/Sk-Sakirul/E-commerce-Trendbe-.git"
+    "title": "Virtual Classroom",
+    "imageSrc": "projects/virtualClassroom.png",
+    "description": "A modern virtual classroom platform built with React, Redux, and Firebase. It includes video conferencing, interactive whiteboard, real-time chat, file sharing, and teacher-specific participation tracking for seamless online learning.",
+    "skills": [
+      "React",
+      "Redux",
+      "Firebase",
+      "Tailwind CSS",
+      "JavaScript",
+      "Firestore"
+    ],
+    "demo": "https://virtual-classroom-sable.vercel.app/",
+    "source": "https://github.com/Sk-Sakirul/virtual-classroom.git"
   },
   {
     "title": "Image Search Engine",
@@ -24,19 +31,20 @@
     "source": "https://github.com/Sk-Sakirul/Image-Search-Engine.git"
   },
   {
-    "title": "GitHub Profile Finder",
-    "imageSrc": "projects/searchGithubProfile.png",
-    "description": "Built a React application that allows users to search and view GitHub profiles using the GitHub API. Displays profile details, repositories, followers, and following with a clean and responsive UI.",
-    "skills": ["HTML", "JavaScript", "CSS", "GitHub API"],
-    "demo": "sk-sakirul.github.io/Search-Github-Profile",
-    "source": "https://github.com/Sk-Sakirul/Search-Github-Profile.git"
-  },
-  {
     "title": "Dice Game",
     "imageSrc": "projects/diceGame.png",
     "description": "The Dice Game is a simple and fun number guessing game built to test your luck.",
     "skills": ["React", "CSS3"],
     "demo": "https://dice-game-tau-wheat.vercel.app/",
     "source": "https://github.com/Sk-Sakirul/Dice-Game.git"
+  },
+  {
+    "title": "GitHub Profile Finder",
+    "imageSrc": "projects/searchGithubProfile.png",
+    "description": "Built a React application that allows users to search and view GitHub profiles using the GitHub API. Displays profile details, repositories, followers, and following with a clean and responsive UI.",
+    "skills": ["HTML", "JavaScript", "CSS", "GitHub API"],
+    "demo": "https://sk-sakirul.github.io/Search-Github-Profile/",
+    "source": "https://github.com/Sk-Sakirul/Image-Search-Engine.git"
   }
 ]
+

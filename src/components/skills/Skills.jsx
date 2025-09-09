@@ -2,7 +2,6 @@ import skills from "../../data/skills.json";
 import styles from "./Skills.module.css";
 import { getImageUrl } from "../../utils";
 
-// const skills = 
 
 export const Skills = () => {
   return (

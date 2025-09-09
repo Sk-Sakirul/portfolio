@@ -1,26 +1,82 @@
-
+import { useState, useEffect} from "react";
 import styles from "./Hero.module.css";
 import { getImageUrl } from "../../utils";
 
 export const Hero = () => {
+  const typewriterTexts = [
+    "Full Stack Developer!",
+    "MERN Stack Developer!",
+    "React Developer!",
+  ];
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const typeSpeed = isDeleting ? 50 : 100;
+    const currentFullText = typewriterTexts[currentTextIndex];
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting && currentText === currentFullText) {
+        setTimeout(() => setIsDeleting(true), 1000);
+      } else if (isDeleting && currentText === "") {
+        setIsDeleting(false);
+        setCurrentTextIndex((prev) => (prev + 1) % typewriterTexts.length);
+      } else {
+        setCurrentText((prev) =>
+          isDeleting
+            ? prev.slice(0, -1)
+            : currentFullText.slice(0, prev.length + 1)
+        );
+      }
+    }, typeSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [currentText, isDeleting, currentTextIndex]);
+
+  const handleResumeDownload = () => {
+    const resumeUrl = getImageUrl("resume/resume.pdf"); 
+    window.open(resumeUrl, "_blank");
+
+    const link = document.createElement("a");
+    link.href = resumeUrl;
+    link.download = "Sakirul-Islam-Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleContactClick = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className={styles.container}>
       <div className={styles.content}>
         <h1 className={styles.title}>
           <span className={styles.greeting}>Hi, I'm</span>
           <span className={styles.name}>Sk Sakirul Islam</span>
+          <span className={styles.typewriter}>
+            <span className={styles.typedText}>{currentText}</span>
+            <span className={styles.cursor}>|</span>
+          </span>
         </h1>
         <p className={styles.description}>
-          Full Stack Developer from India, skilled in React, Node.js,
-          Express.js, and MongoDB. I build dynamic and responsive web
-          applications that turn ideas into reality.
+          I focus on building responsive and scalable applications with clean,
+          maintainable code. Skilled in the MERN stack and modern JavaScript
+          frameworks, I enjoy turning ideas into real solutions. With strong
+          problem-solving and teamwork, I aim to deliver impactful digital
+          experiences.
         </p>
         <div className={styles.buttonGroup}>
-          <a
-            href="mailto:sksakirul484@gmail.com"
+          <button
+            onClick={handleContactClick}
             className={`${styles.contactBtn} ${styles.primary}`}
           >
-            <span>Contact Me</span>
+            <span>Connect with me</span>
             <svg
               className={styles.buttonIcon}
               viewBox="0 0 24 24"
@@ -35,11 +91,9 @@ export const Hero = () => {
                 strokeLinejoin="round"
               />
             </svg>
-          </a>
-          <a
-            href="https://drive.google.com/file/d/1G1D8nv2cRIuXEvXSn7WfFlAhlYoU4KxL/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
+          </button>
+          <button
+            onClick={handleResumeDownload}
             className={`${styles.contactBtn} ${styles.secondary}`}
           >
             <span>My Resume</span>
@@ -71,15 +125,18 @@ export const Hero = () => {
                 strokeLinejoin="round"
               />
             </svg>
-          </a>
+          </button>
         </div>
       </div>
 
       <div className={styles.heroImg}>
         <div className={styles.imageContainer}>
           <img
-            src={getImageUrl("hero/g.png") || "/placeholder.svg"}
-            alt="Hero image of me"
+            src={
+              getImageUrl("hero/g.png") ||
+              "/professional-developer-portrait.png"
+            }
+            alt="Sk Sakirul Islam - Full Stack Developer"
           />
           <div className={styles.imageGlow}></div>
         </div>
