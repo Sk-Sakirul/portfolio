@@ -34,16 +34,25 @@ export const Hero = () => {
     return () => clearTimeout(timeout);
   }, [currentText, isDeleting, currentTextIndex]);
 
-  const handleResumeDownload = () => {
+  const handleResumeDownload = async() => {
     const resumeUrl = getImageUrl("resume/Sakirul_Resume.pdf"); 
     window.open(resumeUrl, "_blank");
 
+    try {
+    const response = await fetch(resumeUrl);
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+
     const link = document.createElement("a");
-    link.href = resumeUrl;
+    link.href = url;
     link.download = "Sakirul-Islam-Resume.pdf";
     document.body.appendChild(link);
     link.click();
-    document.body.removeChild(link);
+    link.remove();
+    window.URL.revokeObjectURL(url);
+  } catch (error) {
+    console.error("Failed to download resume:", error);
+  }
   };
 
   const handleContactClick = () => {
